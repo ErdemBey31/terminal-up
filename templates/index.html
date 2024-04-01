@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Terminal Listesi</title>
+</head>
+<body>
+    <h1>Terminal Listesi</h1>
+    <ul>
+        {% for terminal in terminals %}
+        <li>
+            Terminal {{ terminal.id }}:
+            <a href="{{ url_for('terminal', terminal_id=terminal.id) }}">Görüntüle</a>
+            <a href="{{ url_for('delete_terminal', terminal_id=terminal.id) }}">Sil</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <form method="POST" action="{{ url_for('new_terminal') }}">
+        <button type="submit">Yeni Terminal Ekle</button>
+    </form>
+</body>
+</html>

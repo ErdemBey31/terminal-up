@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Terminal {{ terminal.id }}</title>
+</head>
+<body>
+    <h1>Terminal {{ terminal.id }}</h1>
+    <pre>{{ terminal.output }}</pre>
+
+    <form method="POST" action="{{ url_for('command') }}">
+        <input type="hidden" name="terminal_id" value="{{ terminal.id }}">
+        <input type="text" name="command" autocomplete="off" autofocus>
+        <button type="submit">Gönder</button>
+    </form>
+</body>
+</html>
